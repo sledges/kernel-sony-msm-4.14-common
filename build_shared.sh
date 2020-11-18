@@ -70,6 +70,7 @@ for platform in $PLATFORMS; do \
                     # shellcheck disable=SC2046
                     # note: We want wordsplitting in this case.
                     $MKDTIMG create "$KERNEL_TOP"/common-kernel/dtbo-${device}.img $(find "$KERNEL_TMP"/arch/arm64/boot/dts -name "*.dtbo")
+                    [ "$copy_dtbo_to_out" ] && cp "$KERNEL_TOP"/common-kernel/dtbo-${device}.img "$ANDROID_ROOT"/out/target/product/${device}/dtbo.img
                 fi
 
             fi
